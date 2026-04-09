@@ -10,7 +10,7 @@ class CreateTbDokumen extends Migration
     {
         $this->forge->addField([
             'id_dokumen' => ['type'=>'INT','auto_increment'=>true],
-            '   id_ukm' => ['type'=>'INT'],
+            'id_ukm' => ['type'=>'INT'],
             'judul' => ['type'=>'VARCHAR','constraint'=>100],
             'jenis' => ['type'=>'ENUM','constraint'=>['proposal','lpj','sertifikat']],
             'dokumen' => ['type'=>'VARCHAR','constraint'=>255],

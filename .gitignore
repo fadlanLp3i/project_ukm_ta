@@ -1,0 +1,38 @@
+# ENV (SANGAT PENTING)
+.env
+
+# Composer
+/vendor/
+
+# Node modules (kalau ada)
+node_modules/
+
+# Build / cache
+/public/build/
+/public/uploads/
+
+# Writable (log, cache, session)
+writable/cache/*
+writable/logs/*
+writable/session/*
+writable/uploads/*
+
+# System logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# PHPUnit
+phpunit.xml
+
+# CI4 specific
+spark
+
+# Docker (optional)
+docker-compose.override.yml

@@ -4,16 +4,17 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateTbUkm extends Migration
+class CreateTableUkm extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_ukm' => ['type'=>'INT','auto_increment'=>true],
+            'id_ukm' => ['type'=>'INT','constraint' => 11,'unsigned' => true,'constraint' => 11,'unsigned' => true,'auto_increment'=>true],
             'nama_ukm' => ['type'=>'VARCHAR','constraint'=>100],
             'deskripsi' => ['type'=>'TEXT','null'=>true],
-            'ketua_id' => ['type'=>'INT','null'=>true],
+            'ketua_id' => ['type'=>'INT','null'=>true, 'constraint' => 11, 'unsigned' => true],
             'status' => ['type'=>'ENUM','constraint'=>['aktif','nonaktif']],
+            'created_at' => ['type' => 'DATETIME','null' => true]
         ]);
 
         $this->forge->addKey('id_ukm', true);

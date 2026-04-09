@@ -4,13 +4,13 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateTbDokumen extends Migration
+class CreateTableDokumen extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_dokumen' => ['type'=>'INT','auto_increment'=>true],
-            'id_ukm' => ['type'=>'INT'],
+            'id_dokumen' => ['type'=>'INT','constraint' => 11,'unsigned' => true, 'auto_increment'=>true],
+            'id_ukm' => ['type'=>'INT','constraint' => 11,'unsigned' => true],
             'judul' => ['type'=>'VARCHAR','constraint'=>100],
             'jenis' => ['type'=>'ENUM','constraint'=>['proposal','lpj','sertifikat']],
             'dokumen' => ['type'=>'VARCHAR','constraint'=>255],

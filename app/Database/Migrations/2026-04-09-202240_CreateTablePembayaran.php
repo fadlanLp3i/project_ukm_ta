@@ -4,17 +4,18 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateTbPembayaran extends Migration
+class CreateTablePembayaran extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_pembayaran' => ['type'=>'INT','auto_increment'=>true],
-            'id_peserta' => ['type'=>'INT'],
+            'id_pembayaran' => ['type'=>'INT','constraint' => 11,'unsigned' => true,'auto_increment'=>true],
+            'id_peserta' => ['type'=>'INT','constraint'=>11,'unsigned'=>true],
             'tanggal' => ['type'=>'DATE'],
             'jumlah' => ['type'=>'DECIMAL','constraint'=>'10,2'],
             'status' => ['type'=>'ENUM','constraint'=>['lunas','pending']],
             'bukti' => ['type'=>'VARCHAR','constraint'=>255],
+            'created_at' => ['type' => 'DATETIME','null' => true]
         ]);
 
         $this->forge->addKey('id_pembayaran', true);

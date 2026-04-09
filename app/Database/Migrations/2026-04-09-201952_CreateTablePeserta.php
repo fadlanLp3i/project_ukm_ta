@@ -4,17 +4,18 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateTbPeserta extends Migration
+class CreateTablePeserta extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_peserta' => ['type'=>'INT','auto_increment'=>true],
-            'id_user' => ['type'=>'INT'],
-            'id_ukm' => ['type'=>'INT'],
-            'id_tingkat' => ['type'=>'INT','null'=>true],
+            'id_peserta' => ['type'=>'INT','auto_increment'=>true, 'constraint'=>11,'unsigned'=>true],
+            'id_user' => ['type'=>'INT','constraint'=>11,'unsigned'=>true],
+            'id_ukm' => ['type'=>'INT','constraint'=>11,'unsigned'=>true],
+            'id_tingkat' => ['type'=>'INT','constraint'=>11,'unsigned'=>true,'null'=>true],
             'tanggal_daftar' => ['type'=>'DATE'],
             'status' => ['type'=>'ENUM','constraint'=>['aktif','nonaktif']],
+            'created_at' => ['type' => 'DATETIME','null' => true]
         ]);
 
         $this->forge->addKey('id_peserta', true);

@@ -4,17 +4,18 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateTbAbsensi extends Migration
+class CreateTableAbsensi extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_absensi' => ['type'=>'INT','auto_increment'=>true],
-            'id_jadwal' => ['type'=>'INT'],
-            'id_peserta' => ['type'=>'INT'],
+            'id_absensi' => ['type'=>'INT','constraint'=>11,'unsigned'=>true,'auto_increment'=>true],
+            'id_jadwal' => ['type'=>'INT','constraint'=>11,'unsigned'=>true],
+            'id_peserta' => ['type'=>'INT','constraint'=>11,'unsigned'=>true],
             'tanggal' => ['type'=>'DATE'],
             'status' => ['type'=>'ENUM','constraint'=>['hadir','izin','alpha']],
             'keterangan' => ['type'=>'TEXT','null'=>true],
+            'created_at' => ['type' => 'DATETIME','null' => true]
         ]);
 
         $this->forge->addKey('id_absensi', true);

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateTbUser extends Migration
+class CreateTableUser extends Migration
 {
     public function up()
     {
@@ -17,7 +17,7 @@ class CreateTbUser extends Migration
             'role' => ['type' => 'ENUM','constraint' => ['admin','ketua','anggota','pengajar']],
             'no_hp' => ['type' => 'VARCHAR','constraint' => 15],
             'status' => ['type' => 'ENUM','constraint' => ['aktif','nonaktif']],
-            'created_at' => ['type' => 'TIMESTAMP','default' => 'CURRENT_TIMESTAMP']
+            'created_at' => ['type' => 'DATETIME','null' => true]
         ]);
 
         $this->forge->addKey('id_user', true);

@@ -4,21 +4,22 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateTbJadwalPelatihan extends Migration
+class CreateTableJadwalPelatihan extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_jadwal' => ['type'=>'INT','auto_increment'=>true],
-            'id_ukm' => ['type'=>'INT'],
-            'id_jenis' => ['type'=>'INT','null'=>true],
-            'id_pengajar' => ['type'=>'INT','null'=>true],
-            'id_ruangan' => ['type'=>'INT','null'=>true],
-            'id_tingkat' => ['type'=>'INT','null'=>true],
+            'id_jadwal' => ['type'=>'INT','constraint'=>11,'unsigned'=>true,'auto_increment'=>true],
+            'id_ukm' => ['type'=>'INT','constraint'=>11,'unsigned'=>true,'null'=>true],
+            'id_jenis' => ['type'=>'INT','constraint'=>11,'unsigned'=>true,'null'=>true],
+            'id_pengajar' => ['type'=>'INT','constraint'=>11,'unsigned'=>true,'null'=>true],
+            'id_ruangan' => ['type'=>'INT','constraint'=>11,'unsigned'=>true,'null'=>true],
+            'id_tingkat' => ['type'=>'INT','constraint'=>11,'unsigned'=>true,'null'=>true],
             'tanggal' => ['type'=>'DATE'],
             'jam_mulai' => ['type'=>'TIME'],
             'jam_selesai' => ['type'=>'TIME'],
             'status' => ['type'=>'ENUM','constraint'=>['aktif','selesai']],
+            'created_at' => ['type' => 'DATETIME','null' => true]
         ]);
 
         $this->forge->addKey('id_jadwal', true);

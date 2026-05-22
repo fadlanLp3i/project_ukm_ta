@@ -1,11 +1,17 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Pembina;
+
+use App\Controllers\BaseController;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        return view('welcome_message');
+
+        $data['views'] = 'pembina/index';
+        
+        return view('pembina/layout_view', $data);
     }
+
 }
